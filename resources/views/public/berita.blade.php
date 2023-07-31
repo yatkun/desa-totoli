@@ -37,6 +37,7 @@
                     <div class="grid grid-cols-6 gap-4">
                         <div class="col-span-6 h-80">
                             @if ($post->gambar)
+                            
                             <img src="{{ asset('storage/'.$post->gambar) }}" alt="{{ $post->judul }}"
                                 class=" h-80 w-full object-cover rounded-lg">
                             @else
