@@ -40,7 +40,8 @@
                                 <label for="nama">Nama</label>
                                 <span class="text-sm">*wajib</span>
                                 <input type="text" class="form-control @error('nama')
-                                is-invalid @enderror" name="nama" id="nama" placeholder="Masukkan Nama" value="{{ old('nama') }}">
+                                is-invalid @enderror" name="nama" id="nama" placeholder="Masukkan Nama"
+                                    value="{{ old('nama') }}">
                                 @error('nama')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -51,7 +52,8 @@
                                 <label for="nik">NIK</label>
                                 <span class="text-sm">*wajib</span>
                                 <input type="text" class="form-control @error('nik')
-                                is-invalid @enderror" name="nik" id="nik" placeholder="Masukkan NIK" value="{{ old('nik') }}">
+                                is-invalid @enderror" name="nik" id="nik" placeholder="Masukkan NIK"
+                                    value="{{ old('nik') }}">
                                 @error('nik')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -64,12 +66,13 @@
                                         <label for="nohp">No.HP</label>
                                         <span class="text-sm">*wajib</span>
                                         <input type="text" class="form-control @error('nohp')
-                                is-invalid @enderror" name="nohp" id="nohp" placeholder="Masukkan No.HP" value="{{ old('nohp') }}">
-                                @error('nohp')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                is-invalid @enderror" name="nohp" id="nohp" placeholder="Masukkan No.HP"
+                                            value="{{ old('nohp') }}">
+                                        @error('nohp')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
 
                                     </div>
 
@@ -92,9 +95,14 @@
                                         <label for="pendidikan">Pendidikan</label>
                                         <select class="custom-select" id="pendidikan" name="pendidikan">
                                             <option value="">Pilih Pendidikan</option>
-                                            @foreach ($pendidikans as $pendidikan)
-                                            <option value="{{ $pendidikan->nama }}">{{ $pendidikan->nama }}</option>
-                                            @endforeach
+                                            <option value="Belum/Tidak Sekolah">Belum/Tidak Sekolah</option>
+                                            <option value="SD/Sederajat">SD/Sederajat</option>
+                                            <option value="SMP/Sederajat">SMP/Sederajat</option>
+                                            <option value="SMA/Sederajat">SMA/Sederajat</option>
+                                            <option value="Strata 1">Strata 1</option>
+                                            <option value="Strata 2">Strata 2</option>
+                                            <option value="Strata 3">Strata 3</option>
+                                            <option value="Lainnya">Lainnya</option>
                                         </select>
                                     </div>
                                 </div>
@@ -102,14 +110,17 @@
                                     <div class="form-group">
                                         <label for="pekerjaan">Pekerjaan</label>
                                         <span class="text-sm">*wajib</span>
-                                        <select class="custom-select @error('pekerjaan')
-                                        is-invalid
-                                    @enderror" id="pekerjaan" name="pekerjaan">
-                                            <option value="">Pilih Pekerjaan</option>
-                                            @foreach ($pekerjaans as $pekerjaan)
-                                            <option value="{{ $pekerjaan->nama }}">{{ $pekerjaan->nama }}</option>
-                                            @endforeach
-                                        </select>
+
+                                        <input type="text" class="form-control @error('pekerjaan')
+                                        is-invalid @enderror" name="pekerjaan" id="pekerjaan" placeholder="Masukkan Pekerjaan"
+                                                    value="{{ old('pekerjaan') }}">
+                                                @error('pekerjaan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+
+
                                     </div>
                                 </div>
                             </div>

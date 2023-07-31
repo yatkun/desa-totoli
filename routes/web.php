@@ -89,7 +89,7 @@ Route::put('/dashboard/identitasdesa/update/{id}', [IdentitasController::class, 
 
 // Dashboard Penduduk
 Route::get('/dashboard/penduduk', [PendudukController::class, 'index'])->name('penduduk')->middleware('auth');
-Route::get('/dashboard/penduduk/pengaturan', [PendudukController::class, 'pengaturan'])->middleware('auth');
+
 Route::post('/dashboard/penduduk', [PendudukController::class, 'store'])->middleware('auth');
 Route::get('/dashboard/penduduk/tambah', [PendudukController::class, 'create'])->name('create.penduduk')->middleware('auth');
 Route::get('/dashboard/penduduk/edit/{id}', [PendudukController::class, 'edit'])->middleware('auth');

@@ -114,12 +114,7 @@
                 <p style="padding-left: 40px;">Daftar Penduduk</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="/dashboard/penduduk/pengaturan" class="nav-link {{ $title == 'Pengaturan Penduduk' ? 'active' : '' }}" style="padding:10px">
-                <p style="padding-left: 40px;">Pengaturan Penduduk</p>
-              </a>
-            </li>
-
+         
             
 
           </ul>

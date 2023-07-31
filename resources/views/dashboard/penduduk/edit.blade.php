@@ -95,9 +95,14 @@
                                         <label for="pendidikan">Pendidikan</label>
                                         <select class="custom-select" id="pendidikan" name="pendidikan">
                                             <option value="">Pilih Pendidikan</option>
-                                            @foreach ($pendidikans as $pendidikan)
-                                            <option value="{{ $pendidikan->nama }}" @selected($post->pendidikan == $pendidikan->nama)>{{ $pendidikan->nama }}</option>
-                                            @endforeach
+                                            <option value="Belum/Tidak Sekolah" {{ $post->pendidikan == 'Belum/Tidak Sekolah' ? 'Selected' : '' }}>Belum/Tidak Sekolah</option>
+                                            <option value="SD/Sederajat" {{ $post->pendidikan == 'SD/Sederajat' ? 'Selected' : '' }}>SD/Sederajat</option>
+                                            <option value="SMP/Sederajat" {{ $post->pendidikan == 'SMP/Sederajat' ? 'Selected' : '' }}>SMP/Sederajat</option>
+                                            <option value="SMA/Sederajat" {{ $post->pendidikan == 'SMA/Sederajat' ? 'Selected' : '' }}>SMA/Sederajat</option>
+                                            <option value="Strata 1" {{ $post->pendidikan == 'Strata 1' ? 'Selected' : '' }}>Strata 1</option>
+                                            <option value="Strata 2" {{ $post->pendidikan == 'Strata 2' ? 'Selected' : '' }}>Strata 2</option>
+                                            <option value="Strata 3" {{ $post->pendidikan == 'Strata 3' ? 'Selected' : '' }}>Strata 3</option>
+                                            <option value="Lainnya" {{ $post->pendidikan == 'Lainnya' ? 'Selected' : '' }}>Lainnya</option>
                                         </select>
                                     </div>
                                 </div>
@@ -105,13 +110,16 @@
                                     <div class="form-group">
                                         <label for="pekerjaan">Pekerjaan</label>
                                         <span class="text-sm">*wajib</span>
-                                        <select class="custom-select @error('pekerjaan')
-                                        is-invalid
-                                    @enderror" id="pekerjaan" name="pekerjaan">
-                                            <option value="">Pilih Pekerjaan</option>
-                                            @foreach ($pekerjaans as $pekerjaan)
-                                            <option value="{{ $pekerjaan->nama }}" @selected($post->pekerjaan == $pekerjaan->nama)>{{ $pekerjaan->nama }}</option>
-                                            @endforeach
+                                        <input type="text" class="form-control @error('pekerjaan')
+                                        is-invalid @enderror" name="pekerjaan" id="pekerjaan" placeholder="Masukkan Pekerjaan"
+                                                    value="{{ $post->pekerjaan }}">
+                                                @error('pekerjaan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+
+                                           
                                         </select>
                                     </div>
                                 </div>
