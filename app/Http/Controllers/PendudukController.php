@@ -8,7 +8,9 @@ use App\Models\Pekerjaan;
 use App\Models\Pendidikan;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+use App\Exports\PendudukExport;
+use App\Imports\PendudukImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 
@@ -166,6 +168,25 @@ class PendudukController extends Controller
 
         //redirect to index
         return redirect('/dashboard/penduduk')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    // Import
+    public function import(){
+        
+
+        Excel::import(new PendudukImport, request()->file('file'));
+       
+        
+        return back();
+    }
+
+
+
+
+    // Export
+    public function export(){
+        return Excel::download(new PendudukExport, 'penduduk.xlsx');
+      
     }
 
  

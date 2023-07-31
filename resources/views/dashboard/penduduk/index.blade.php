@@ -6,11 +6,33 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col-sm-6">
                     <h1 class="m-0">Penduduk</h1>
                 </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <div class="breadcrumb float-sm-right">
 
+                        <form action="{{ route('penduduk.import') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+
+                                <div class="input-group input-group-sm">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="file">
+                                        <label class="custom-file-label" for="inputGroupFile02">Import Excel</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="input-group-text">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        
+                    </div>
+                </div>
             </div><!-- /.row -->
             @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -32,8 +54,14 @@
         <div class="col-md-12">
             <div class="card card-outline card-primary rounded-0 elevation-0">
                 <div class="card-header items-center">
-                    <div class="card-title ">
+                    <div class="card-title flex">
                         <a href="/dashboard/penduduk/tambah" class="btn btn-success btn-sm">Tambah Penduduk</a>
+
+
+
+                        <a href="{{ route('penduduk.export') }}">
+                            <button class="btn btn-success btn-sm">Export Excel</button>
+                        </a>
                     </div>
 
                     <div class="card-tools">
@@ -82,7 +110,7 @@
                                 </td>
                                 <td>
                                     <a href="{{url('dashboard/penduduk/edit')}}/{{$item->id}}">{{ $item->nik }}</a>
-                                    </td>
+                                </td>
                                 <td>{{ $item->nohp }}</td>
                                 <td>{{ $item->pekerjaan }}</td>
 
@@ -91,19 +119,19 @@
 
                             @endforeach
 
-                            
+
                         </tbody>
-                        
+
                     </table>
-                 
-                     <div class="card-footer clearfix">
+
+                    <div class="card-footer clearfix">
                         {{ $items->links('vendor.pagination.bootstrap-4') }}
-                        </div>
-                    
+                    </div>
+
                 </div>
-               
-                 
-           
+
+
+
 
                 <!-- /.card-body -->
             </div>
@@ -115,4 +143,12 @@
 </div>
 
 
+<script>
+    /* show file value after file select */
+document.querySelector('.custom-file-input').addEventListener('change',function(e){
+  var fileName = document.getElementById("inputGroupFile02").files[0].name;
+  var nextSibling = e.target.nextElementSibling
+  nextSibling.innerText = fileName
+})
+</script>
 @endsection

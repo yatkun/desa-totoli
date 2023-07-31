@@ -166,3 +166,8 @@ Route::get('/dashboard/admin/tambah', [UserController::class, 'create'])->name('
 Route::get('/dashboard/admin/edit/{id}', [UserController::class, 'edit'])->middleware('auth');
 Route::put('/dashboard/admin/update/{id}', [UserController::class, 'update'])->middleware('auth')->name('admin.update');
 Route::get('/dashboard/admin/hapus/{id}', [UserController::class, 'destroy'])->middleware('auth')->name('admin.hapus');
+
+
+// Upload & Export Excel
+Route::post('penduduk-import', [PendudukController::class, 'import'])->name('penduduk.import')->middleware('auth');
+Route::get('penduduk-export', [PendudukController::class, 'export'])->name('penduduk.export')->middleware('auth');

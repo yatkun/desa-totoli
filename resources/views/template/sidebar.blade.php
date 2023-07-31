@@ -102,7 +102,7 @@
 
         <li class="nav-item {{ $menu == 'Penduduk' ? 'menu-open' : '' }}" >
           <a href="#" class="nav-link {{ $menu == 'Penduduk' ? 'active' : '' }}">
-            <i class="nav-icon fa-solid fa-people-group spasi2" style="font-size: 15px"></i>
+            <i class="nav-icon fa fa-user spasi2" style="font-size: 15px"></i>
             <p>
              Penduduk
               <i class="right fas fa-angle-right"></i>
